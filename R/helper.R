@@ -10,3 +10,24 @@ is_ordinal <- function(v) {
 is_integer <- function(v) {
     is.integer(v) || all(v %% 1 == 0)
 }
+
+compose <- function(xl) {
+    lbl <- names(xl)
+    if (is.null(lbl)) {
+        lbl <- 1:length(xl)
+    }
+
+    ltyp <- sapply(xl, class)
+
+    if (all(ltyp == "data.frame")) {
+        lbl <- rep(lbl, times = sapply(xl, nrow))
+        val <- do.call("rbind", xl)
+        res <- cbind.data.frame(id = lbl, val, row.names = NULL)
+
+    } else if (all((ltyp == "numeric") | (ltyp == "integer") | (ltyp == "character"))) {
+        lbl <- rep(lbl, times = sapply(xl, length))
+        res <- data.frame(id = lbl, val = unlist(xl), row.names = NULL)
+    }
+
+    res
+}
