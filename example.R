@@ -8,3 +8,5 @@ v <- get.vertex.attribute(fmh, "Grade")
 
 soc_closing(fmh, "Grade")
 soc_closing(x, v)
+
+# ??? Igraph??? => List?
