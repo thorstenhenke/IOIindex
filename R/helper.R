@@ -2,8 +2,7 @@ is_sociomatrix <- function(x) {
     is.matrix(x) && isSymmetric(x) && all((x == 0) | (x == 1)) && (all(diag(x) == 0))
 }
 
-is_ordinal <- function(v) {
-    # Ordinal OR Nominal
+is_nominal <- function(v) {
     is.factor(v) || is_integer(v)
 }
 

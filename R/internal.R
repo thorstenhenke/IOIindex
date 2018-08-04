@@ -1,11 +1,11 @@
 Eijk_Rintern <- function(x, v) {
-    stopifnot(is_sociomatrix(x) && is_ordinal(v))
+    stopifnot(is_sociomatrix(x) && is_nominal(v))
     wijk <- 1 + rowSums(x * outer(v, v, "=="))
     log(wijk/mean(wijk))
 }
 
 Aijk_Rintern <- function(x, v) {
-    stopifnot(is_sociomatrix(x) && is_ordinal(v))
+    stopifnot(is_sociomatrix(x) && is_nominal(v))
     wijk <- 1 + rowSums(x * outer(v, v, "!="))
     log(wijk/mean(wijk))
 }
