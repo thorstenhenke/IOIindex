@@ -5,6 +5,7 @@
 \alias{social_opening.network}
 \alias{social_opening.igraph}
 \alias{social_opening.matrix}
+\alias{social_opening.default}
 \title{Social opening coefficient}
 \usage{
 social_opening(net, ...)
@@ -14,6 +15,8 @@ social_opening(net, ...)
 \method{social_opening}{igraph}(net, vname)
 
 \method{social_opening}{matrix}(net, v)
+
+\method{social_opening}{default}(x, depth = 0, ...)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.
@@ -25,6 +28,12 @@ The network can either be directed or undirected.}
 type igraph, network or list.}
 
 \item{v}{vector of node attributes.}
+
+\item{depth}{this paramter should not be manipulated! It controls the recursion depth of the function
+In case net is of type list.}
+}
+\value{
+a numeric vector of social opening indices for each indvidual in the network.
 }
 \description{
 `social_opening()` calculates the social opening coefficient for a given network and node attribute.
@@ -36,5 +45,7 @@ type igraph, network or list.}
 \item \code{igraph}: net is of type igraph
 
 \item \code{matrix}: net is of type matrix
+
+\item \code{default}: error case
 }}
 

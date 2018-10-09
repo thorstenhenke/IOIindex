@@ -8,7 +8,7 @@ social_all(net, vname)
 }
 \arguments{
 \item{net}{Network of type igraph, network or a list of objects of these datatypes. The
-type matrix is not allowed.}
+type matrix is not allowed in this function.}
 
 \item{vname}{character variable indicating the . This parameter can only be used if net is of
 type igraph, network or list.}

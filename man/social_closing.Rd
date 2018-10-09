@@ -7,6 +7,8 @@
 \alias{social_closing.igraph}
 \alias{social_closing.matrix}
 \alias{social_closing.default}
+\alias{social_opening.list}
+\alias{social_integration.list}
 \title{Social closing coefficient}
 \usage{
 social_closing(net, ..., depth = 0)
@@ -20,6 +22,10 @@ social_closing(net, ..., depth = 0)
 \method{social_closing}{matrix}(net, v, ...)
 
 \method{social_closing}{default}(x, depth = 0, ...)
+
+\method{social_opening}{list}(net, vname, depth = 0)
+
+\method{social_integration}{list}(net, vname, depth = 0)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.
@@ -52,6 +58,10 @@ a numeric vector of social closinig indices for each indvidual in the network.
 \item \code{matrix}: net is of type matrix
 
 \item \code{default}: error case
+
+\item \code{list}: net is of type list
+
+\item \code{list}: net is of type list
 }}
 
 \examples{

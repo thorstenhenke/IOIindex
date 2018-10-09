@@ -5,6 +5,7 @@
 \alias{social_integration.network}
 \alias{social_integration.igraph}
 \alias{social_integration.matrix}
+\alias{social_integration.default}
 \title{Social integration coefficient}
 \usage{
 social_integration(net, ...)
@@ -14,6 +15,8 @@ social_integration(net, ...)
 \method{social_integration}{igraph}(net, vname)
 
 \method{social_integration}{matrix}(net, v)
+
+\method{social_integration}{default}(x, depth = 0, ...)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.
@@ -25,6 +28,12 @@ The network can either be directed or undirected.}
 type igraph, network or list.}
 
 \item{v}{vector of node attributes.}
+
+\item{depth}{this paramter should not be manipulated! It controls the recursion depth of the function
+In case net is of type list.}
+}
+\value{
+a numeric vector of social integration indices for each indvidual in the network.
 }
 \description{
 `social_integration()` calculates the social integration coefficient for a given network and node attribute.
@@ -36,5 +45,7 @@ type igraph, network or list.}
 \item \code{igraph}: net is of type igraph
 
 \item \code{matrix}: net is of type matrix
+
+\item \code{default}: error case
 }}
 
