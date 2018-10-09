@@ -3,16 +3,20 @@
 #' `social_all()` calculates the social closing, opening and
 #' integration coefficients for a given network and node attribute.
 #' @param net Network of type igraph, network or a list of objects of these datatypes. The
-#' type matrix is not allowed.
+#' type matrix is not allowed in this function.
 #' @param vname character variable indicating the . This parameter can only be used if net is of
 #' type igraph, network or list.
 #' @return a three column data.frame with the social closing, opening and integration coefficients
 #' per person in the network.
 social_all <- function(net, vname) {
-    a <- social_closing(net, vname)
-    e <- social_opening(net, vname)
 
-    # Check for the case that net is a list!!
+    if (is.list(net) && !(network::is.network(net) || igraph::is.igraph(net))) {
+        a <- apply_list(social_closing, net, vname, depth = 0)
+        e <- apply_list(social_opening, net, vname, depth = 0)
+    } else {
+        a <- social_closing(net, vname)
+        e <- social_opening(net, vname)
+    }
 
     data.frame(closing = a, opening = e, integration = a - e)
 }
