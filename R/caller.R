@@ -56,7 +56,7 @@ social_closing <- function(net, ..., depth = 0) {
 
 #' @describeIn social_closing net is of type list
 social_closing.list <- function(net, vname, depth = 0) {
-    apply_list(social_closing, vname, depth)
+    apply_list(social_closing, net, vname, depth)
 }
 
 #' @describeIn social_closing net is of type network
@@ -93,7 +93,7 @@ social_opening <- function(net, ...) {
 
 #' @describeIn social_closing net is of type list
 social_opening.list <- function(net, vname, depth = 0) {
-    apply_list(social_opening, vname, depth)
+    apply_list(social_opening, net, vname, depth)
 }
 
 #' @describeIn social_opening net is of type network
@@ -133,7 +133,7 @@ social_integration <- function(net, ...) {
 
 #' @describeIn social_closing net is of type list
 social_integration.list <- function(net, vname, depth = 0) {
-    apply_list(social_integration, vname, depth)
+    apply_list(social_integration, net, vname, depth)
 }
 
 #' @describeIn social_integration net is of type network
