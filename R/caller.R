@@ -166,28 +166,65 @@ naive_opening <- function(net, ...) {
     UseMethod("naive_opening")
 }
 
-naive_opening.list <- function() {}
-naive_opening.network <- function() {}
-naive_opening.igraph <- function() {}
-naive_opening.matrix <- function() {}
-naive_opening.default <- function() {}
+naive_opening.list <- function(net, vname, depth = 0) {
+    apply_list(naive_opening, net, vname, depth)
+}
+naive_opening.network <- function(net, vname) {
+    obj <- extractor_network(net, vname)
+    AReitz_intern(obj$x, obj$v)
+}
+naive_opening.igraph <- function(net, vname) {
+    obj <- extractor_igraph(net, vname)
+    AReitz_intern(obj$x, obj$v)
+}
+naive_opening.matrix <- function(net, v) {
+    AReitz_intern(x, v)
+}
+naive_opening.default <- function(x, depth = 0, ...) {
+    print_err_msg("naive_opening()", x)
+}
+
 
 naive_closing <- function(net, ...) {
     UseMethod("naive_closing")
 }
 
-naive_closing.list <- function() {}
-naive_closing.network <- function() {}
-naive_closing.igraph <- function() {}
-naive_closing.matrix <- function() {}
-naive_closing.default <- function() {}
+naive_closing.list <- function(net, vname, depth = 0) {
+    apply_list(naive_closing, net, vname, depth)
+}
+naive_closing.network <- function(net, vname) {
+    obj <- extractor_network(net, vname)
+    EReitz_intern(obj$x, obj$v)
+}
+naive_closing.igraph <- function(net, vname) {
+    obj <- extractor_igraph(net, vname)
+    EReitz_intern(obj$x, obj$v)
+}
+naive_closing.matrix <- function(net, v) {
+    EReitz_intern(x, v)
+}
+naive_closing.default <- function() {
+    print_err_msg("naive_closing()", x)
+}
 
 naive_balance <- function(net, ...) {
     UseMethod("naive_balance")
 }
 
-naive_balance.list <- function() {}
-naive_balance.network <- function() {}
-naive_balance.igraph <- function() {}
-naive_balance.matrix <- function() {}
-naive_balance.default <- function() {}
+naive_balance.list <- function(net, vname, depth = 0) {
+    apply_list(naive_balance, net, vname, depth)
+}
+naive_balance.network <- function(net, vname) {
+    obj <- extractor_network(net, vname)
+    balance_intern(obj$x, obj$v)
+}
+naive_balance.igraph <- function(net, vname) {
+    obj <- extractor_igraph(net, vname)
+    balance_intern(obj$x, obj$v)
+}
+naive_balance.matrix <- function(net, v) {
+    balance_intern(x, v)
+}
+naive_balance.default <- function(x, depth = 0, ...) {
+    print_err_msg("naive_balance()", x)
+}
