@@ -52,3 +52,34 @@ print_err_msg <- function(fun_name, x) {
     cc <- paste(class(x), collapse = " ")
     stop(paste0("Method ", fun_name, " is not applicable to data of class ", cc))
 }
+
+
+extractor_network <- function(net, vname) {
+    if (!(is.character(vname) && length(vname) == 1)) {
+        stop("Fehler")
+    }
+
+    if (!(vname %in% network::list.vertex.attributes(x = net))) {
+        stop("Fehler")
+    }
+
+    x <- network::as.sociomatrix(x = net)
+    v <- network::get.vertex.attribute(x = net, attrname = vname)
+
+    list(x, v)
+}
+
+extractor_igraph <- function(net, vname) {
+  if (!(is.character(vname) && length(vname) == 1)) {
+      stop("Fehler")
+  }
+
+  if (!(vname %in% igraph::vertex_attr_names(graph = net))) {
+      stop("Fehler")
+  }
+
+  x <- as.matrix(igraph::as_adjacency_matrix(graph = net))
+  v <- igraph::vertex_attr(graph = net, name = vname)
+
+  list(x, v)
+}

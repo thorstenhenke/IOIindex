@@ -61,33 +61,13 @@ social_closing.list <- function(net, vname, depth = 0) {
 
 #' @describeIn social_closing net is of type network
 social_closing.network <- function(net, vname, ...) {
-    if (!(is.character(vname) && length(vname) == 1)) {
-        stop("Fehler")
-    }
-
-    if (!(vname %in% network::list.vertex.attributes(x = net))) {
-        stop("Fehler")
-    }
-
-    x <- network::as.sociomatrix(x = net)
-    v <- network::get.vertex.attribute(x = net, attrname = vname)
-
-    Aijk_Rintern(x, v)
+    obj <- extractor_network(net, vname)
+    Aijk_Rintern(obj$x, obj$v)
 }
 
 #' @describeIn social_closing net is of type igraph
 social_closing.igraph <- function(net, vname, ...) {
-    if (!(is.character(vname) && length(vname) == 1)) {
-        stop("Fehler")
-    }
-
-    if (!(vname %in% igraph::vertex_attr_names(graph = net))) {
-        stop("Fehler")
-    }
-
-    x <- as.matrix(igraph::as_adjacency_matrix(graph = net))
-    v <- igraph::vertex_attr(graph = net, name = vname)
-
+    obj <- extractor_igraph(net, vname)
     Aijk_Rintern(x, v)
 }
 
@@ -119,35 +99,15 @@ social_opening.list <- function(net, vname, depth = 0) {
 #' @describeIn social_opening net is of type network
 #' @inheritParams social_closing.network
 social_opening.network <- function(net, vname) {
-    if (!(is.character(vname) && length(vname) == 1)) {
-        stop("Fehler")
-    }
-
-    if (!(vname %in% network::list.vertex.attributes(x = net))) {
-        stop("Fehler")
-    }
-
-    x <- network::as.sociomatrix(x = net)
-    v <- network::get.vertex.attribute(x = net, attrname = vname)
-
-    Eijk_Rintern(x, v)
+    obj <- extractor_network(net, vname)
+    Eijk_Rintern(obj$x, obj$v)
 }
 
 #' @describeIn social_opening net is of type igraph
 #' @inheritParams social_closing.igraph
 social_opening.igraph <- function(net, vname) {
-    if (!(is.character(vname) && length(vname) == 1)) {
-        stop("Fehler")
-    }
-
-    if (!(vname %in% igraph::vertex_attr_names(graph = net))) {
-        stop("Fehler")
-    }
-
-    x <- as.matrix(igraph::as_adjacency_matrix(graph = net))
-    v <- igraph::vertex_attr(graph = net, name = vname)
-
-    Eijk_Rintern(x, v)
+    obj <- extractor_igraph(net, vname)
+    Eijk_Rintern(obj$x, obj$v)
 }
 
 #' @describeIn social_opening net is of type matrix
@@ -179,35 +139,15 @@ social_integration.list <- function(net, vname, depth = 0) {
 #' @describeIn social_integration net is of type network
 #' @inheritParams social_closing.network
 social_integration.network <- function(net, vname) {
-    if (!(is.character(vname) && length(vname) == 1)) {
-        stop("Fehler")
-    }
-
-    if (!(vname %in% network::list.vertex.attributes(net))) {
-        stop("Fehler")
-    }
-
-    x <- network::as.sociomatrix(net)
-    v <- network::get.vertex.attribute(net, vname)
-
-    Ii_Rintern(x, v)
+    obj <- extractor_network(net, vname)
+    Ii_Rintern(obj$x, obj$v)
 }
 
 #' @describeIn social_integration net is of type igraph
 #' @inheritParams social_closing.igraph
 social_integration.igraph <- function(net, vname) {
-    if (!(is.character(vname) && length(vname) == 1)) {
-        stop("Fehler")
-    }
-
-    if (!(vname %in% igraph::vertex_attr_names(graph = net))) {
-        stop("Fehler")
-    }
-
-    x <- as.matrix(igraph::as_adjacency_matrix(graph = net))
-    v <- igraph::vertex_attr(graph = net, name = vname)
-
-    Ii_Rintern(x, v)
+    obj <- extractor_igraph(net, vname)
+    Ii_Rintern(obj$x, obj$v)
 }
 
 #' @describeIn social_integration net is of type matrix
