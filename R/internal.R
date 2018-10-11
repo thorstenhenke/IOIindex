@@ -39,7 +39,12 @@ AReitz_intern <- function(x, v) {
     a
 }
 
-# Idea
-wa <- rowSums(m * outer(v,v,"=="))
-we <- rowSums(m * outer(v,v,"!="))
-log(wa + 1) - log(we + 1)
+
+balance_intern <- function(x, v) {
+    vg <- outer(v,v,"==")
+
+    e <- rowSums(x * vg)
+    a <- rowSums(x * !vg)
+
+    log(wa + 1) - log(we + 1)
+}
