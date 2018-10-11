@@ -1,3 +1,2 @@
-- soc_closing.list if we have multiple networks
 - Bootstrapping permutation for Significance testing? This would probably require a Rcpp Version.
 - 'ne switch calling function f(..., mode = "a", "e") ggf?
