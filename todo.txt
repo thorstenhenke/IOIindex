@@ -1,12 +1,12 @@
 ---
 title: Todo
 author: Thorsten Henke
-date: 09.10.18
+date created: 09.10.18
+date updated: 11.10.18
 ---
 
+# Finish documentation
+
 - Add informative error messages and translate the current stub messages
-- Finish documentation
-- Decide on what to do on the alternative/additional measures
 - Add a short package description to the description file
 - Add author names to the description file
-
