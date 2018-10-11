@@ -1,3 +1,4 @@
+# ???STIMMT HIER DIE REIHENFOLGE???
 Eijk_Rintern <- function(x, v) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
     wijk <- 1 + rowSums(x * outer(v, v, "=="))
@@ -11,11 +12,13 @@ Aijk_Rintern <- function(x, v) {
 }
 
 Ii_Rintern <- function(x, v) {
+    stopifnot(is_sociomatrix(x) && is_nominal(v))
     Aijk_Rintern(x, v) - Eijk_Rintern(x, v)
 }
 
 
 EReitz_intern <- function(x, v, logscale = FALSE) {
+    stopifnot(is_sociomatrix(x) && is_nominal(v))
     xg <- outer(v, v, "==")
     re <- rowSums(x * xg)
     rn <- rowSums(xg)
@@ -27,8 +30,9 @@ EReitz_intern <- function(x, v, logscale = FALSE) {
     e
 }
 
-AReitz_intern <- function(x, v) {
-    xg <- outer(v, v, "=!")
+AReitz_intern <- function(x, v, logscale = FALSE) {
+    stopifnot(is_sociomatrix(x) && is_nominal(v))
+    xg <- outer(v, v, "!=")
     re <- rowSums(x * xg)
     rn <- rowSums(xg)
     if (logscale) {
@@ -41,10 +45,11 @@ AReitz_intern <- function(x, v) {
 
 
 balance_intern <- function(x, v) {
+    stopifnot(is_sociomatrix(x) && is_nominal(v))
     vg <- outer(v,v,"==")
 
     e <- rowSums(x * vg)
     a <- rowSums(x * !vg)
 
-    log(wa + 1) - log(we + 1)
+    log(a + 1) - log(e + 1)
 }
