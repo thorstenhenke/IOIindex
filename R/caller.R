@@ -68,7 +68,7 @@ social_closing.network <- function(net, vname, ...) {
 #' @describeIn social_closing net is of type igraph
 social_closing.igraph <- function(net, vname, ...) {
     obj <- extractor_igraph(net, vname)
-    Aijk_Rintern(x, v)
+    Aijk_Rintern(obj$x, obj$v)
 }
 
 #' @describeIn social_closing net is of type matrix
