@@ -1,2 +1,6 @@
+ideas\.txt
+todo\.txt
+^\.gitignore
+
 ^.*\.Rproj$
 ^\.Rproj\.user$
