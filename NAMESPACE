@@ -1,1 +1,1 @@
-exportPattern("^social_[[:alpha:]]+")
+exportPattern("^(social|naive)_[[:alpha:]]+")
