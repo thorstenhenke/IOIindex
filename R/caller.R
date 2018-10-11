@@ -160,3 +160,34 @@ social_integration.matrix <- function(net, v) {
 social_integration.default <- function(x, depth = 0, ...) {
     print_err_msg("social_integration()", x)
 }
+
+
+naive_opening <- function(net, ...) {
+    UseMethod("naive_opening")
+}
+
+naive_opening.list <- function() {}
+naive_opening.network <- function() {}
+naive_opening.igraph <- function() {}
+naive_opening.matrix <- function() {}
+naive_opening.default <- function() {}
+
+naive_closing <- function(net, ...) {
+    UseMethod("naive_closing")
+}
+
+naive_closing.list <- function() {}
+naive_closing.network <- function() {}
+naive_closing.igraph <- function() {}
+naive_closing.matrix <- function() {}
+naive_closing.default <- function() {}
+
+naive_balance <- function(net, ...) {
+    UseMethod("naive_balance")
+}
+
+naive_balance.list <- function() {}
+naive_balance.network <- function() {}
+naive_balance.igraph <- function() {}
+naive_balance.matrix <- function() {}
+naive_balance.default <- function() {}
