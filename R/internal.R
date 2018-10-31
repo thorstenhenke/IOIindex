@@ -1,19 +1,34 @@
-# ???STIMMT HIER DIE REIHENFOLGE???
-Eijk_Rintern <- function(x, v) {
+Eijk_Rintern <- function(x, v, m) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
-    wijk <- 1 + rowSums(x * outer(v, v, "=="))
+
+    m <- ifelse(isSymmetric(x), "out", match.arg(m, several.ok = FALSE))
+
+    if (m == "in") {
+        wijk <- 1 + colSums(x * outer(v, v, "=="))
+    } else {
+        wijk <- 1 + rowSums(x * outer(v, v, "=="))
+    }
+
     log(wijk/mean(wijk))
 }
 
-Aijk_Rintern <- function(x, v) {
+Aijk_Rintern <- function(x, v, m) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
-    wijk <- 1 + rowSums(x * outer(v, v, "!="))
+
+    m <- ifelse(isSymmetric(x), "out", match.arg(m, several.ok = FALSE))
+
+    if (m == "in") {
+        wijk <- 1 + colSums(x * outer(v, v, "!="))
+    } else {
+        wijk <- 1 + rowSums(x * outer(v, v, "!="))
+    }
+
     log(wijk/mean(wijk))
 }
 
-Ii_Rintern <- function(x, v) {
+Ii_Rintern <- function(x, v, m) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
-    Aijk_Rintern(x, v) - Eijk_Rintern(x, v)
+    Aijk_Rintern(x, v, m) - Eijk_Rintern(x, v, m)
 }
 
 
