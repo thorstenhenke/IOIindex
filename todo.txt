@@ -2,7 +2,7 @@
 title: Todo
 author: Thorsten Henke
 date created: 09.10.18
-date updated: 11.10.18
+date updated: 31.10.18
 ---
 
 # Finish documentation
