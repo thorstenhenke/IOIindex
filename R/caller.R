@@ -1,13 +1,15 @@
 #' Social closing and opening coefficients
 #'
 #' `social_all()` calculates the social closing, opening and
-#' integration coefficients for a given network and node attribute.
-#' @param net Network of type igraph, network or a list of objects of these datatypes. The
-#' type matrix is not allowed in this function.
-#' @param vname character variable indicating the . This parameter can only be used if net is of
-#' type igraph, network or list.
-#' @return a three column data.frame with the social closing, opening and integration coefficients
-#' per person in the network.
+#' integration coefficients for a given network and set of node attributes.
+#' @param net Network of either type igraph, network or a list of objects of any of these datatypes.
+#' The list objects can even be mixed, meaing that some objects are of type network, some of type
+#' igraph, etc. However, the type matrix is not allowed in this function.
+#' @param vname character variable indicating the variable that is used for grouping. This parameter
+#' can only be used if net is of type igraph, network or list. Please note, that in case you are
+#' using the list input, the variable has to be present in each of the list objects.
+#' @return a data.frame with three columns for the social closing, opening and integration coefficients
+#' per person in the given network(s).
 social_all <- function(net, vname) {
 
     if (is.list(net) && !(network::is.network(net) || igraph::is.igraph(net))) {
@@ -26,16 +28,22 @@ social_all <- function(net, vname) {
 #' `social_closing()` calculates the social closing coefficient for a given network and node attribute.
 #'
 #' @param net Network of type matrix, igraph, network or a list of objects of these datatypes.
-#' The network can either be directed or undirected.
-#' @param vname character variable indicating the . This parameter can only be used if net is of
-#' type igraph, network or list.
-#' @param v vector of node attributes.
+#' The list objects can even be mixed, meaning that some objects are of type network, some of type
+#' igraph, etc. The networks can either be directed or undirected. In case of a directed network it
+#' is recommended to specify whether the indices should be calculated based on the incoming network
+#' ties or outgoing network ties.
+#' @param vname character variable indicating which variable should be used for grouping. This parameter
+#' can only be used if net is of type igraph, network or list. Please note, that in case you are
+#' using the list input, the variable has to be present in each of the list objects. This parameter
+#' can only be used if net is of type igraph, network or list.
+#' @param v vector of node attributes. This parameter is only relevant if net is of type matrix. Otherwise
+#' this parameter should be ignored and left as it is.
 #' @param mode This parameter will only be evaluated if the network is directed. In case of an undirected
 #' network this parameter will be ignored.
-#' @param ... Addtional paramters
+#' @param ... Potential addtional paramters. .
 #' @param depth this paramter should not be manipulated! It controls the recursion depth of the function
-#' In case net is of type list.
-#' @return a numeric vector of social closinig indices for each indvidual in the network.
+#' in case net is of type list.
+#' @return a numeric vector of social closing indices for each indvidual in the network.
 #' @examples
 #'
 #' data("faux.magnolia.high", package = "ergm")
