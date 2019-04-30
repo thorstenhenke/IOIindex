@@ -9,7 +9,7 @@ Eijk_Rintern <- function(x, v, m) {
         wijk <- 1 + rowSums(x * outer(v, v, "=="))
     }
 
-    log(wijk/mean(wijk))
+    log(wijk) - log(mean(wijk))
 }
 
 Aijk_Rintern <- function(x, v, m) {
@@ -23,7 +23,7 @@ Aijk_Rintern <- function(x, v, m) {
         wijk <- 1 + rowSums(x * outer(v, v, "!="))
     }
 
-    log(wijk/mean(wijk))
+    log(wijk) - log(mean(wijk))
 }
 
 Ii_Rintern <- function(x, v, m) {
