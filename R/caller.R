@@ -40,7 +40,7 @@ social_all <- function(net, vname) {
 #' this parameter should be ignored and left as it is.
 #' @param mode This parameter will only be evaluated if the network is directed. In case of an undirected
 #' network this parameter will be ignored.
-#' @param ... Potential addtional paramters. .
+#' @param ... Potential additional paramters. .
 #' @param depth this paramter should not be manipulated! It controls the recursion depth of the function
 #' in case net is of type list.
 #' @return a numeric vector of social closing indices for each indvidual in the network.
@@ -252,4 +252,37 @@ naive_balance.matrix <- function(net, v) {
 }
 naive_balance.default <- function(x, depth = 0, ...) {
     print_err_msg("naive_balance()", x)
+}
+
+#' @inheritParams social_closing
+#' @return a numeric vector of social opening indices for each indvidual in the network.
+McCormick <- function(net, ..., depth = 0) {
+    UseMethod("McCormick")
+}
+
+McCormick.list <- function(net, vname, ..., depth = 0) {
+    if (is.matrix(net[[1]])) {
+        mi <- apply_list_matrix(McCormick, net, vname, depth)
+    } else {
+        mi <- apply_list(McCormick, net, vname, depth)
+    }
+    mi
+}
+
+McCormick.network <- function(net, vname, ...) {
+    obj <- extractor_network(net, vname)
+    McCormick_intern(obj$x, obj$v, ...)
+}
+
+McCormick.igraph <- function(net, vname, ...) {
+    obj <- extractor_igraph(net, vname)
+    McCormick_intern(obj$x, obj$v, ...)
+}
+
+McCormick.matrix <- function(net, v, ...) {
+    McCormick_intern(net, v, ...)
+}
+
+McCormick.default <- function(x, ...) {
+    print_err_msg("McCormick()", x)
 }

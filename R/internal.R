@@ -59,6 +59,22 @@ AReitz_intern <- function(x, v, logscale = FALSE) {
 }
 
 
+McCormick_intern <- function(x, v, logscale = FALSE) {
+    df  <- length(v) - 1
+    nf  <- rowSums(x)
+
+    vv  <- outer(v, v, "==")
+    srp <- rowSums(vv)
+    srf <- rowSums(x * vv)
+
+    if (!logscale) {
+        return((srf * df) / (srp * nf))
+    }
+
+    (log(srf) + log(df)) - (log(srp) - log(nf))
+}
+
+
 balance_intern <- function(x, v) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
     vg <- outer(v,v,"==")
