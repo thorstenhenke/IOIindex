@@ -10,27 +10,38 @@
 \usage{
 social_integration(net, ...)
 
-\method{social_integration}{network}(net, vname)
+\method{social_integration}{network}(net, vname, mode = c("out", "in"),
+  ...)
 
-\method{social_integration}{igraph}(net, vname)
+\method{social_integration}{igraph}(net, vname, mode = c("out", "in"),
+  ...)
 
-\method{social_integration}{matrix}(net, v)
+\method{social_integration}{matrix}(net, v, mode = c("out", "in"), ...)
 
 \method{social_integration}{default}(x, depth = 0, ...)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.
-The network can either be directed or undirected.}
+The list objects can even be mixed, meaning that some objects are of type network, some of type
+igraph, etc. The networks can either be directed or undirected. In case of a directed network it
+is recommended to specify whether the indices should be calculated based on the incoming network
+ties or outgoing network ties.}
 
-\item{...}{Addtional paramters}
+\item{...}{Potential additional paramters. .}
 
-\item{vname}{character variable indicating the . This parameter can only be used if net is of
-type igraph, network or list.}
+\item{vname}{character variable indicating which variable should be used for grouping. This parameter
+can only be used if net is of type igraph, network or list. Please note, that in case you are
+using the list input, the variable has to be present in each of the list objects. This parameter
+can only be used if net is of type igraph, network or list.}
 
-\item{v}{vector of node attributes.}
+\item{mode}{This parameter will only be evaluated if the network is directed. In case of an undirected
+network this parameter will be ignored.}
+
+\item{v}{vector of node attributes. This parameter is only relevant if net is of type matrix. Otherwise
+this parameter should be ignored and left as it is.}
 
 \item{depth}{this paramter should not be manipulated! It controls the recursion depth of the function
-In case net is of type list.}
+in case net is of type list.}
 }
 \value{
 a numeric vector of social integration indices for each indvidual in the network.
