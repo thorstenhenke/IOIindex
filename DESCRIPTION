@@ -1,16 +1,26 @@
 Package: IOIndex
 Type: Package
-Title: Caclucalting the opening, closing and integration tednencies in socical networks 
+Title: Caclucalting the opening, closing and integration tendencies in socical networks 
 Version: 1.0.0
-Date: 2018-10-01
+Date: 2019-06-01
 Authors@R: c(
     person("Thorsten", "Henke", email = "IOIndex@thorsten-henke.de", role = c("aut", "cre")), 
     person("Lysann", "Zander", email = "lysann.zander@iew.uni-hannover.de", role = "aut"), 
     person("Christian", "Steglich", email = "", role = "aut"), 
     person("Jürgen", "Baumert", email = "", role = "aut"))
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: The IOIndex is a collection of homophily measures for social networks. It quantifies and 
+    expresses the tendency of members in a social network to connect to other members outside or 
+    inside a certain group. These groups maybe defined by social categories like gender, 
+    ethnicity, language, etc. In contrast to similar homophily indices the IOIndex does not compare 
+    the in and out group orientation of a specific person to the number of possible in and out 
+    group connections but it compares it to the average in and out group orientation of the other 
+    network members. The IOIndex thus can be understood as a measure of activiy for a specific network 
+    member. Next to the newly devoloped index we also inclued implementations of several older indces 
+    as e.g. the well-known IE index and Yule's Q. These additional indices  can be used for validating 
+    and double checking the results of the IOIndex procedures. 
+URL: https://github.com/thorstenhenke/IOIndex
+BugReports: https://github.com/thorstenhenke/IOIndex/issues
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
