@@ -3,8 +3,11 @@ Type: Package
 Title: Caclucalting the opening, closing and integration tednencies in socical networks 
 Version: 1.0.0
 Date: 2018-10-01
-Author: Who wrote it
-Maintainer: Thorsten Henke <IOIndex@thorsten-henke.de>
+Authors@R: c(
+    person("Thorsten", "Henke", email = "IOIndex@thorsten-henke.de", role = c("aut", "cre")), 
+    person("Lysann", "Zander", email = "lysann.zander@iew.uni-hannover.de", role = "aut"), 
+    person("Christian", "Steglich", email = "", role = "aut"), 
+    person("Jürgen", "Baumert", email = "", role = "aut"))
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
