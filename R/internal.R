@@ -1,3 +1,4 @@
+# Documented in: <fill in citation after publication>
 Eijk_Rintern <- function(x, v, m) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
 
@@ -31,7 +32,7 @@ Ii_Rintern <- function(x, v, m) {
     Aijk_Rintern(x, v, m) - Eijk_Rintern(x, v, m)
 }
 
-
+# Documented in: Reitz, Asendorpf & Motti-Stefanidi, 2015, DOI: 10.1177/0165025414567008
 EReitz_intern <- function(x, v, logscale = FALSE) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
     xg <- outer(v, v, "==")
@@ -58,8 +59,9 @@ AReitz_intern <- function(x, v, logscale = FALSE) {
     a
 }
 
-
+# Documented in: McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051.
 McCormick_intern <- function(x, v, logscale = FALSE) {
+    stopifnot(is_sociomatrix(x) && is_nominal(v))
     df  <- length(v) - 1
     nf  <- rowSums(x)
 
@@ -74,13 +76,44 @@ McCormick_intern <- function(x, v, logscale = FALSE) {
     (log(srf) + log(df)) - (log(srp) - log(nf))
 }
 
-
-balance_intern <- function(x, v) {
+# Quelle???
+ie_index_intern <- function(x, v, m = c("in", "out")) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
-    vg <- outer(v,v,"==")
 
-    e <- rowSums(x * vg)
-    a <- rowSums(x * !vg)
+    m <- match.arg(m, several.ok = FALSE)
 
-    log(a + 1) - log(e + 1)
+    vv <- outer(v, v, "==")
+
+    if (isSymmetric(x) || (m == "out")) {
+        sum_func <- colSums
+    } else {
+        sum_func <- rowSums
+    }
+
+    a <- sum_func(x *  vv)
+    b <- sum_func(x * !vv)
+
+    (b - a) / (b + a)
+}
+
+# Quelle???
+yules_q_intern <- function(x, v, m = c("in", "out")) {
+    stopifnot(is_sociomatrix(x) && is_nominal(v))
+
+    m <- match.arg(m, several.ok = FALSE)
+
+    vv <- outer(v, v, "==")
+
+    if (isSymmetric(x) || (m == "out")) {
+        sum_func <- colSums
+    } else {
+        sum_func <- rowSums
+    }
+
+    a <- sum_func( x *  vv)
+    b <- sum_func( x * !vv)
+    c <- sum_func(!x *  vv)
+    d <- sum_func(!x * !vv)
+
+    (a*d - b*c) / (a*d + b*c)
 }
