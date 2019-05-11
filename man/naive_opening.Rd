@@ -36,14 +36,31 @@ naive_opening(net, ...)
 
 \method{naive_closing}{default}(net, ...)
 }
+\arguments{
+\item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.
+The list objects can even be mixed, meaning that some objects are of type network, some of type
+igraph, etc. The networks can either be directed or undirected. In case of a directed network it
+is recommended to specify whether the indices should be calculated based on the incoming network
+ties or outgoing network ties.}
+
+\item{...}{Potential additional paramters. .}
+
+\item{vname}{character variable indicating which variable should be used for grouping. This parameter
+can only be used if net is of type igraph, network or list. Please note, that in case you are
+using the list input, the variable has to be present in each of the list objects. This parameter
+can only be used if net is of type igraph, network or list.}
+
+\item{depth}{this paramter should not be manipulated! It controls the recursion depth of the function
+in case net is of type list.}
+
+\item{v}{vector of node attributes. This parameter is only relevant if net is of type matrix. Otherwise
+this parameter should be ignored and left as it is.}
+}
 \description{
 This index was described and used in various papers (see e.g. Reitz, Asendorpf & Motti-Stefanidi, 2015, DOI: 10.1177/0165025414567008) For this index a ratio
 between the actual number relationships to members of the in- or outgroup is compared to
 the maximum possible number of connections within the in- or outgroup
 (aka the size of the in- or outgroup).
-}
-\details{
-#' @inheritParams social_closing
 }
 \section{Methods (by class)}{
 \itemize{
