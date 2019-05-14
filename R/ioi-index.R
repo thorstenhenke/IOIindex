@@ -1,4 +1,4 @@
-#' Social closing and opening coefficients
+#' Social closing, opening and integration coefficients
 #'
 #' `social_all()` calculates the social closing, opening and
 #' integration coefficients for a given network and set of node attributes.
