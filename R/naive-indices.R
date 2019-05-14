@@ -40,7 +40,7 @@ naive_opening.default <- function(x, depth = 0, ...) {
 #' the maximum possible number of connections within the in- or outgroup
 #' (aka the size of the in- or outgroup).
 #'
-#' @describeIn naive_opening general implementation for S3 class dispatch
+#' @inheritParams naive_opening
 naive_closing <- function(net, ...) {
     UseMethod("naive_closing")
 }
@@ -68,27 +68,3 @@ naive_closing.matrix <- function(net, v) {
 naive_closing.default <- function(net, ...) {
     print_err_msg("naive_closing()", net)
 }
-
-naive_balance <- function(net, ...) {
-    UseMethod("naive_balance")
-}
-
-naive_balance.list <- function(net, vname, depth = 0) {
-    apply_list(naive_balance, net, vname, depth)
-}
-naive_balance.network <- function(net, vname) {
-    obj <- extractor_network(net, vname)
-    balance_intern(obj$x, obj$v)
-}
-naive_balance.igraph <- function(net, vname) {
-    obj <- extractor_igraph(net, vname)
-    balance_intern(obj$x, obj$v)
-}
-naive_balance.matrix <- function(net, v) {
-    balance_intern(x, v)
-}
-naive_balance.default <- function(x, depth = 0, ...) {
-    print_err_msg("naive_balance()", x)
-}
-
-
