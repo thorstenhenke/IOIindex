@@ -10,6 +10,7 @@
 #' using the list input, the variable has to be present in each of the list objects.
 #' @return a data.frame with three columns for the social closing, opening and integration coefficients
 #' per person in the given network(s).
+#' @export
 social_all <- function(net, vname) {
 
     if (is.list(net) && !(network::is.network(net) || igraph::is.igraph(net))) {
@@ -59,12 +60,14 @@ social_all <- function(net, vname) {
 #'
 #' social_closing(list(fmh, fmh), "Grade")
 #' social_closing(list(gg, fmh), "Grade")
+#' @export
 social_closing <- function(net, ..., depth = 0) {
     stopifnot(depth <= 1)
     UseMethod("social_closing")
 }
 
 #' @describeIn social_closing net is of type list
+#' @export
 social_closing.list <- function(net, vname, mode = c("out", "in"), depth = 0) {
     if (is.matrix(net[[1]])) {
         ci <- apply_list_matrix(social_closing, net, vname, mode, depth)
@@ -75,23 +78,27 @@ social_closing.list <- function(net, vname, mode = c("out", "in"), depth = 0) {
 }
 
 #' @describeIn social_closing net is of type network
+#' @export
 social_closing.network <- function(net, vname, mode = c("out", "in"), ...) {
     obj <- extractor_network(net, vname)
     Aijk_Rintern(obj$x, obj$v, mode)
 }
 
 #' @describeIn social_closing net is of type igraph
+#' @export
 social_closing.igraph <- function(net, vname, mode = c("out", "in"), ...) {
     obj <- extractor_igraph(net, vname)
     Aijk_Rintern(obj$x, obj$v, mode)
 }
 
 #' @describeIn social_closing net is of type matrix
+#' @export
 social_closing.matrix <- function(net, v, mode = c("out", "in"), ...) {
     Aijk_Rintern(net, v, mode)
 }
 
 #' @describeIn social_closing error case
+#' @export
 social_closing.default <- function(x, depth = 0, ...) {
     print_err_msg("social_closing()", x)
 }
@@ -102,11 +109,13 @@ social_closing.default <- function(x, depth = 0, ...) {
 #'
 #' @inheritParams social_closing
 #' @return a numeric vector of social opening indices for each indvidual in the network.
+#' @export
 social_opening <- function(net, ...) {
     UseMethod("social_opening")
 }
 
 #' @describeIn social_closing net is of type list
+#' @export
 social_opening.list <- function(net, vname, mode = c("out", "in"), depth = 0) {
     if (is.matrix(net[[1]])) {
         oi <- apply_list_matrix(social_opening, net, vname, mode, depth)
@@ -118,6 +127,7 @@ social_opening.list <- function(net, vname, mode = c("out", "in"), depth = 0) {
 
 #' @describeIn social_opening net is of type network
 #' @inheritParams social_closing.network
+#' @export
 social_opening.network <- function(net, vname, mode = c("out", "in"), ...) {
     obj <- extractor_network(net, vname)
     Eijk_Rintern(obj$x, obj$v, mode)
@@ -125,6 +135,7 @@ social_opening.network <- function(net, vname, mode = c("out", "in"), ...) {
 
 #' @describeIn social_opening net is of type igraph
 #' @inheritParams social_closing.igraph
+#' @export
 social_opening.igraph <- function(net, vname, mode = c("out", "in"), ...) {
     obj <- extractor_igraph(net, vname)
     Eijk_Rintern(obj$x, obj$v, mode)
@@ -132,11 +143,13 @@ social_opening.igraph <- function(net, vname, mode = c("out", "in"), ...) {
 
 #' @describeIn social_opening net is of type matrix
 #' @inheritParams social_closing.matrix
+#' @export
 social_opening.matrix <- function(net, v, mode = c("out", "in"), ...) {
     Eijk_Rintern(net, v, mode)
 }
 
 #' @describeIn social_opening error case
+#' @export
 social_opening.default <- function(x, depth = 0, ...) {
     print_err_msg("social_opening()", x)
 }
@@ -147,11 +160,13 @@ social_opening.default <- function(x, depth = 0, ...) {
 #'
 #' @inheritParams social_closing
 #' @return a numeric vector of social integration indices for each indvidual in the network.
+#' @export
 social_integration <- function(net, ...) {
     UseMethod("social_integration")
 }
 
 #' @describeIn social_closing net is of type list
+#' @export
 social_integration.list <- function(net, vname, mode = c("out", "in"), depth = 0) {
     if (is.matrix(net[[1]])) {
         oi <- apply_list_matrix(social_integration, net, vname, mode, depth)
@@ -162,6 +177,7 @@ social_integration.list <- function(net, vname, mode = c("out", "in"), depth = 0
 }
 
 #' @describeIn social_integration net is of type network
+#' @export
 #' @inheritParams social_closing.network
 social_integration.network <- function(net, vname, mode = c("out", "in"), ...) {
     obj <- extractor_network(net, vname)
@@ -170,6 +186,7 @@ social_integration.network <- function(net, vname, mode = c("out", "in"), ...) {
 
 #' @describeIn social_integration net is of type igraph
 #' @inheritParams social_closing.igraph
+#' @export
 social_integration.igraph <- function(net, vname, mode = c("out", "in"), ...) {
     obj <- extractor_igraph(net, vname)
     Ii_Rintern(obj$x, obj$v, mode)
@@ -177,11 +194,13 @@ social_integration.igraph <- function(net, vname, mode = c("out", "in"), ...) {
 
 #' @describeIn social_integration net is of type matrix
 #' @inheritParams social_closing.matrix
+#' @export
 social_integration.matrix <- function(net, v, mode = c("out", "in"), ...) {
     Ii_Rintern(net, v, mode)
 }
 
 #' @describeIn social_integration error case
+#' @export
 social_integration.default <- function(x, depth = 0, ...) {
     print_err_msg("social_integration()", x)
 }
