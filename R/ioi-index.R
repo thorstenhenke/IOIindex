@@ -46,7 +46,7 @@ social_all <- function(net, vname) {
 #' in case net is of type list.
 #' @return a numeric vector of social closing indices for each indvidual in the network.
 #' @examples
-#'
+#' \dontrun{
 #' data("faux.magnolia.high", package = "ergm")
 #' fmh <- faux.magnolia.high ; rm(faux.magnolia.high)
 #' social_closing(fmh, "Grade")
@@ -60,6 +60,7 @@ social_all <- function(net, vname) {
 #'
 #' social_closing(list(fmh, fmh), "Grade")
 #' social_closing(list(gg, fmh), "Grade")
+#' }
 #' @export
 social_closing <- function(net, ..., depth = 0) {
     stopifnot(depth <= 1)

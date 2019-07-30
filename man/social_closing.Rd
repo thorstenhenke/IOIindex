@@ -77,7 +77,7 @@ a numeric vector of social closing indices for each indvidual in the network.
 }}
 
 \examples{
-
+\dontrun{
 data("faux.magnolia.high", package = "ergm")
 fmh <- faux.magnolia.high ; rm(faux.magnolia.high)
 social_closing(fmh, "Grade")
@@ -91,4 +91,5 @@ igraph::vertex_attr(gg, "Grade") <- v
 
 social_closing(list(fmh, fmh), "Grade")
 social_closing(list(gg, fmh), "Grade")
+}
 }
