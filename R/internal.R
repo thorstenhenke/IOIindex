@@ -76,7 +76,8 @@ McCormick_intern <- function(x, v, logscale = FALSE) {
     (log(srf) + log(df)) - (log(srp) - log(nf))
 }
 
-# Quelle???
+# Documented in: Borgatti, S. P., Everett, M. G., & Johnson, Jeffrey C. (2013). Analyzing social networks.
+#' Los Angeles, et al.: SAGE Publications.
 ie_index_intern <- function(x, v, m = c("in", "out")) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
 
@@ -96,7 +97,8 @@ ie_index_intern <- function(x, v, m = c("in", "out")) {
     (b - a) / (b + a)
 }
 
-# Quelle???
+# Documented in: Borgatti, S. P., Everett, M. G., & Johnson, Jeffrey C. (2013). Analyzing social networks.
+#' Los Angeles, et al.: SAGE Publications.
 yules_q_intern <- function(x, v, m = c("in", "out")) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
 
