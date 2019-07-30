@@ -11,7 +11,7 @@ is_integer <- function(v) {
     is.integer(v) || all(v %% 1 == 0)
 }
 
-apply_list_matrix <- function(fun, net, v, depth = 0) {
+apply_list_matrix <- function(fun, net, v, mode, depth = 0) {
     stopifnot(is.list(net) && is.list(v))
     stopifnot(length(net) == length(v))
     stopifnot(all(sapply(net, nrow) == sapply(v, length)))
@@ -22,13 +22,13 @@ apply_list_matrix <- function(fun, net, v, depth = 0) {
     al <- vector(mode = "list", length = n)
 
     for (i in 1:n) {
-        al[[i]] <- fun(net[[i]], v[[i]], depth = depth)
+        al[[i]] <- fun(net[[i]], v[[i]], mode, depth = depth)
     }
 
     compose(al)
 }
 
-apply_list <- function(fun, net, vname, depth = 0) {
+apply_list <- function(fun, net, vname, mode, depth = 0) {
     if (!(is.character(vname) && length(vname) == 1)) {
         stop("Fehler")
     }
@@ -38,7 +38,7 @@ apply_list <- function(fun, net, vname, depth = 0) {
     n <- length(net)
     al <- vector(mode = "list", length = n)
     for (i in 1:n) {
-        al[[i]] <- fun(net[[i]], vname, depth = depth)
+        al[[i]] <- fun(net[[i]], vname, mode, depth = depth)
     }
 
     compose(al)
