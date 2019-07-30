@@ -42,7 +42,7 @@ can only be used if net is of type igraph, network or list.}
 this parameter should be ignored and left as it is.}
 }
 \value{
-a numeric vector of a normalized difderence for each individual between
+a numeric vector of a normalized difference for each individual between
 the number of in and outgroup ties.
 }
 \description{

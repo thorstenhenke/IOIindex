@@ -26,7 +26,7 @@
 #' @examples
 #' # Please consult the documentation for the social_closing, social_opneing, etc. indices
 #'
-#' @return a numeric vector of a normalized difderence for each individual between
+#' @return a numeric vector of a normalized difference for each individual between
 #' the number of in and outgroup ties.
 #' @export
 EI_index <- function(net, ..., depth = 0) {

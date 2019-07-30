@@ -7,7 +7,7 @@
 \alias{Yules_q.igraph}
 \alias{Yules_q.matrix}
 \alias{Yules_q.default}
-\title{TITLE}
+\title{Yule's Q}
 \usage{
 Yules_q(net, ..., depth = 0)
 
@@ -42,12 +42,21 @@ can only be used if net is of type igraph, network or list.}
 this parameter should be ignored and left as it is.}
 }
 \value{
-a numeric vector of ???
+a numeric vector of a normalized difference for each individual between
+the number of in and outgroup ties and non-ties.
 }
 \description{
-`McCormick()` calculates a homophily index based on a given network and node attribute.
-This index was invented by McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051. During the developement of the IOIndex this index was used for validation.
-Thus both indices, the IOIndex and McCormick's index, should usually be moderatedly correlated.
+`Yules_q()` calculates a homophily index based on a given network and node attribute.
+}
+\details{
+Yules_q can be used as an alternative for the well known EI index by Krackhardt and Stern, which
+is also implemeted in this package. In contrast to the EI Index, Yule's Q also accounts for
+the distribution of nonn -ties. For further information on this index and its comparison to the EI
+index see Borgatti, S. P., Everett, M. G., & Johnson, Jeffrey C. (2013). Analyzing social networks.
+Los Angeles, et al.: SAGE Publications. The EI index by Krackhardt & Stern (1988)
+DOI: 10.2307/2786835. was used during the developement of the IOIndex as a validation measure. Yule's Q
+was not during the developement of the package but in principle it could also have served as a
+validation for our new index.
 }
 \section{Methods (by class)}{
 \itemize{
@@ -62,3 +71,7 @@ Thus both indices, the IOIndex and McCormick's index, should usually be moderate
 \item \code{default}: error case
 }}
 
+\examples{
+# Please consult the documentation for the social_closing, social_opneing, etc. indices
+
+}
