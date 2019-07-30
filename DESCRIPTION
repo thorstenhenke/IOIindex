@@ -6,8 +6,8 @@ Date: 2019-06-01
 Authors@R: c(
     person("Thorsten", "Henke", email = "IOIndex@thorsten-henke.de", role = c("aut", "cre")), 
     person("Lysann", "Zander", email = "lysann.zander@iew.uni-hannover.de", role = "aut"), 
-    person("Christian", "Steglich", email = "", role = "aut"), 
-    person("Jürgen", "Baumert", email = "", role = "aut"))
+    person("Christian", "Steglich", email = "c.e.g.steglich@rug.nl", role = "aut"), 
+    person("Jürgen", "Baumert", email = "sekbaumert@mpib-berlin.mpg.de", role = "aut"))
 Description: The IOIndex is a collection of homophily measures for social networks. It quantifies and 
     expresses the tendency of members in a social network to connect to other members outside or 
     inside a certain group. These groups maybe defined by social categories like gender, 
