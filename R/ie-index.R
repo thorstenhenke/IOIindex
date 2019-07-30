@@ -1,17 +1,41 @@
-#' TITLE
+#' Krackhardt and Sterns' EI index
 #'
-#' `IE_index()` calculates a homophily index based on a given network and node attribute.
-#' This index was invented by McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051. During the developement of the IOIndex this index was used for validation.
-#' Thus both indices, the IOIndex and McCormick's index, should usually be moderatedly correlated.
+#' `EI_index()` calculates an inverse homophily index based on a given network and node attribute.
 #'
-#' @inheritParams social_closing
-#' @return a numeric vector of ???
-IE_index <- function(net, ..., depth = 0) {
-    UseMethod("IE_index")
+#'  During the developement of the IOIndex this index was used for validation. The index was developed
+#'  by Krackhardt & Stern (1988) DOI:  DOI: 10.2307/2786835. Thus both indices, the IOIndex and the
+#'  EI-index, should usually be moderatedly and negatively correlated. However, as the EI-Index
+#'  is known to be sensitive to group size, the association stregth with the IOIndex
+#'  should be expected to be smaller than for the other indices in this package.
+#'
+#'
+#' @param net Network of type matrix, igraph, network or a list of objects of these datatypes.
+#' The list objects can even be mixed, meaning that some objects are of type network, some of type
+#' igraph, etc. The networks can either be directed or undirected. In case of a directed network it
+#' is recommended to specify whether the indices should be calculated based on the incoming network
+#' ties or outgoing network ties.
+#' @param vname character variable indicating which variable should be used for grouping. This parameter
+#' can only be used if net is of type igraph, network or list. Please note, that in case you are
+#' using the list input, the variable has to be present in each of the list objects. This parameter
+#' can only be used if net is of type igraph, network or list.
+#' @param v vector of node attributes. This parameter is only relevant if net is of type matrix. Otherwise
+#' this parameter should be ignored and left as it is.
+#' @param ... Potential additional paramters. .
+#' @param depth this paramter should not be manipulated! It controls the recursion depth of the function
+#' in case net is of type list.
+#' @examples
+#' # Please consult the documentation for the social_closing, social_opneing, etc. indices
+#'
+#' @return a numeric vector of a normalized difderence for each individual between
+#' the number of in and outgroup ties.
+#' @export
+EI_index <- function(net, ..., depth = 0) {
+    UseMethod("EI_index")
 }
 
-#' @describeIn IE_index net is of type list
-IE_index.list <- function(net, vname, ..., depth = 0) {
+#' @describeIn EI_index net is of type list
+#' @export
+EI_index.list <- function(net, vname, ..., depth = 0) {
     if (is.matrix(net[[1]])) {
         mi <- apply_list_matrix(ie_index_intern, net, vname, depth)
     } else {
@@ -20,24 +44,28 @@ IE_index.list <- function(net, vname, ..., depth = 0) {
     mi
 }
 
-#' @describeIn IE_index net is of type network
-IE_index.network <- function(net, vname, ...) {
+#' @describeIn EI_index net is of type network
+#' @export
+EI_index.network <- function(net, vname, ...) {
     obj <- extractor_network(net, vname)
     ie_index_intern(obj$x, obj$v, ...)
 }
 
-#' @describeIn IE_index net is of type igraph
-IE_index.igraph <- function(net, vname, ...) {
+#' @describeIn EI_index net is of type igraph
+#' @export
+EI_index.igraph <- function(net, vname, ...) {
     obj <- extractor_igraph(net, vname)
     ie_index_intern(obj$x, obj$v, ...)
 }
 
-#' @describeIn IE_index net is of type network
-IE_index.matrix <- function(net, v, ...) {
+#' @describeIn EI_index net is of type network
+#' @export
+EI_index.matrix <- function(net, v, ...) {
     ie_index_intern(net, v, ...)
 }
 
-#' @describeIn IE_index error case
-IE_index.default <- function(x, ...) {
-    print_err_msg("IE_index()", x)
+#' @describeIn EI_index error case
+#' @export
+EI_index.default <- function(x, ...) {
+    print_err_msg("EI_index()", x)
 }
