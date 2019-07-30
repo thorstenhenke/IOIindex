@@ -15,9 +15,16 @@ ties or outgoing network ties.}
 
 \item{...}{Potential additional paramters. .}
 }
+\value{
+a numeric vector of real valued ratios for each indvidual in the network.
+}
 \description{
 This index was described and used in various papers (see e.g. Reitz, Asendorpf & Motti-Stefanidi, 2015, DOI: 10.1177/0165025414567008) For this index a ratio
 between the actual number relationships to members of the in- or outgroup is compared to
 the maximum possible number of connections within the in- or outgroup
 (aka the size of the in- or outgroup).
+}
+\examples{
+# Please consult the documentation for the social_closing, social_opneing, etc. indices
+
 }
