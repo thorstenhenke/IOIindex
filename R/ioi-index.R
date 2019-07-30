@@ -71,7 +71,7 @@ social_closing <- function(net, ..., depth = 0) {
 
 #' @describeIn social_closing net is of type list
 #' @export
-social_closing.list <- function(net, vname, mode = c("out", "in"), depth = 0) {
+social_closing.list <- function(net, vname, mode = c("out", "in"), ..., depth = 0) {
     if (is.matrix(net[[1]])) {
         ci <- apply_list_matrix(social_closing, net, vname, mode, depth)
     } else {
@@ -119,7 +119,7 @@ social_opening <- function(net, ...) {
 
 #' @describeIn social_closing net is of type list
 #' @export
-social_opening.list <- function(net, vname, mode = c("out", "in"), depth = 0) {
+social_opening.list <- function(net, vname, mode = c("out", "in"), ..., depth = 0) {
     if (is.matrix(net[[1]])) {
         oi <- apply_list_matrix(social_opening, net, vname, mode, depth)
     } else {
@@ -170,7 +170,7 @@ social_integration <- function(net, ...) {
 
 #' @describeIn social_closing net is of type list
 #' @export
-social_integration.list <- function(net, vname, mode = c("out", "in"), depth = 0) {
+social_integration.list <- function(net, vname, mode = c("out", "in"), ..., depth = 0) {
     if (is.matrix(net[[1]])) {
         oi <- apply_list_matrix(social_integration, net, vname, mode, depth)
     } else {

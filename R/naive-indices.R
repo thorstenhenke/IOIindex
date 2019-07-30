@@ -31,24 +31,24 @@ naive_opening <- function(net, ...) {
 
 #' @describeIn naive_opening net is of type list
 #' @export
-naive_opening.list <- function(net, vname, depth = 0) {
+naive_opening.list <- function(net, vname, ..., depth = 0) {
     apply_list(naive_opening, net, vname, depth)
 }
 #' @describeIn naive_opening net is of type network
 #' @export
-naive_opening.network <- function(net, vname) {
+naive_opening.network <- function(net, vname, ...) {
     obj <- extractor_network(net, vname)
     AReitz_intern(obj$x, obj$v)
 }
 #' @describeIn naive_opening net is of type igraph
 #' @export
-naive_opening.igraph <- function(net, vname) {
+naive_opening.igraph <- function(net, vname, ...) {
     obj <- extractor_igraph(net, vname)
     AReitz_intern(obj$x, obj$v)
 }
 #' @describeIn naive_opening net is of type matrix
 #' @export
-naive_opening.matrix <- function(net, v) {
+naive_opening.matrix <- function(net, v, ...) {
     AReitz_intern(net, v)
 }
 #' @describeIn naive_opening error case
@@ -76,25 +76,25 @@ naive_closing <- function(net, ...) {
 
 #' @describeIn naive_opening net is of type list
 #' @export
-naive_closing.list <- function(net, vname, depth = 0) {
+naive_closing.list <- function(net, vname, ..., depth = 0) {
     apply_list(naive_closing, net, vname, depth)
 }
 
 #' @describeIn naive_opening net is of type network
 #' @export
-naive_closing.network <- function(net, vname) {
+naive_closing.network <- function(net, vname, ...) {
     obj <- extractor_network(net, vname)
     EReitz_intern(obj$x, obj$v)
 }
 #' @describeIn naive_opening net is of type igraph
 #' @export
-naive_closing.igraph <- function(net, vname) {
+naive_closing.igraph <- function(net, vname, ...) {
     obj <- extractor_igraph(net, vname)
     EReitz_intern(obj$x, obj$v)
 }
 #' @describeIn naive_opening net is of type matrix
 #' @export
-naive_closing.matrix <- function(net, v) {
+naive_closing.matrix <- function(net, v, ...) {
     EReitz_intern(net, v)
 }
 #' @describeIn naive_opening error case

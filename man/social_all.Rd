@@ -4,7 +4,7 @@
 \alias{social_all}
 \title{Social closing, opening and integration coefficients}
 \usage{
-social_all(net, vname)
+social_all(net, vname, mode = c("out", "in"))
 }
 \arguments{
 \item{net}{Network of either type igraph, network or a list of objects of any of these datatypes.
@@ -14,6 +14,9 @@ igraph, etc. However, the type matrix is not allowed in this function.}
 \item{vname}{character variable indicating the variable that is used for grouping. This parameter
 can only be used if net is of type igraph, network or list. Please note, that in case you are
 using the list input, the variable has to be present in each of the list objects.}
+
+\item{mode}{This parameter will only be evaluated if the network is directed. In case of an undirected
+network this parameter will be ignored.}
 }
 \value{
 a data.frame with three columns for the social closing, opening and integration coefficients

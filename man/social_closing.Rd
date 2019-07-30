@@ -13,7 +13,7 @@
 \usage{
 social_closing(net, ..., depth = 0)
 
-\method{social_closing}{list}(net, vname, mode = c("out", "in"),
+\method{social_closing}{list}(net, vname, mode = c("out", "in"), ...,
   depth = 0)
 
 \method{social_closing}{network}(net, vname, mode = c("out", "in"), ...)
@@ -24,10 +24,10 @@ social_closing(net, ..., depth = 0)
 
 \method{social_closing}{default}(net, depth = 0, ...)
 
-\method{social_opening}{list}(net, vname, mode = c("out", "in"),
+\method{social_opening}{list}(net, vname, mode = c("out", "in"), ...,
   depth = 0)
 
-\method{social_integration}{list}(net, vname, mode = c("out", "in"),
+\method{social_integration}{list}(net, vname, mode = c("out", "in"), ...,
   depth = 0)
 }
 \arguments{

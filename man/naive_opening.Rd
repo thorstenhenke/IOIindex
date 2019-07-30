@@ -16,23 +16,23 @@
 \usage{
 naive_opening(net, ...)
 
-\method{naive_opening}{list}(net, vname, depth = 0)
+\method{naive_opening}{list}(net, vname, ..., depth = 0)
 
-\method{naive_opening}{network}(net, vname)
+\method{naive_opening}{network}(net, vname, ...)
 
-\method{naive_opening}{igraph}(net, vname)
+\method{naive_opening}{igraph}(net, vname, ...)
 
-\method{naive_opening}{matrix}(net, v)
+\method{naive_opening}{matrix}(net, v, ...)
 
 \method{naive_opening}{default}(net, depth = 0, ...)
 
-\method{naive_closing}{list}(net, vname, depth = 0)
+\method{naive_closing}{list}(net, vname, ..., depth = 0)
 
-\method{naive_closing}{network}(net, vname)
+\method{naive_closing}{network}(net, vname, ...)
 
-\method{naive_closing}{igraph}(net, vname)
+\method{naive_closing}{igraph}(net, vname, ...)
 
-\method{naive_closing}{matrix}(net, v)
+\method{naive_closing}{matrix}(net, v, ...)
 
 \method{naive_closing}{default}(net, ...)
 }
