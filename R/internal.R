@@ -33,30 +33,33 @@ Ii_Rintern <- function(x, v, m) {
 }
 
 # Documented in: Reitz, Asendorpf & Motti-Stefanidi, 2015, DOI: 10.1177/0165025414567008
-EReitz_intern <- function(x, v, logscale = FALSE) {
+EReitz_intern <- function(x, v) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
     xg <- outer(v, v, "==")
+
+    m <- if (isSymmetric(x)) "out"
+
+    if (m == "in") {
+
+    } else {
+
+    }
     re <- rowSums(x * xg)
     rn <- rowSums(xg)
-    if (logscale) {
-        e <- log(re + 1) - log(rn)
-    } else {
-        e <- re/(rn - 1)
-    }
-    e
+
+    re/(rn - 1)
 }
 
-AReitz_intern <- function(x, v, logscale = FALSE) {
+AReitz_intern <- function(x, v, m) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
     xg <- outer(v, v, "!=")
+
+    m <- if (isSymmetric(x)) "out"
+
     re <- rowSums(x * xg)
     rn <- rowSums(xg)
-    if (logscale) {
-        a <- log(re + 1) - log(rn + 1)
-    } else {
-        a <- re/rn
-    }
-    a
+
+    re/rn
 }
 
 # Documented in: McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051.
