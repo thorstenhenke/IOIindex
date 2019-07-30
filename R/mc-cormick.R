@@ -59,6 +59,6 @@ McCormick.matrix <- function(net, v, ...) {
 
 #' @describeIn McCormick error case
 #' @export
-McCormick.default <- function(x, ...) {
-    print_err_msg("McCormick()", x)
+McCormick.default <- function(net, ...) {
+    print_err_msg("McCormick()", net)
 }

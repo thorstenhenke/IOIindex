@@ -19,7 +19,7 @@ McCormick(net, ..., depth = 0)
 
 \method{McCormick}{matrix}(net, v, ...)
 
-\method{McCormick}{default}(x, ...)
+\method{McCormick}{default}(net, ...)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.

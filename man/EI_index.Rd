@@ -19,7 +19,7 @@ EI_index(net, ..., depth = 0)
 
 \method{EI_index}{matrix}(net, v, ...)
 
-\method{EI_index}{default}(x, ...)
+\method{EI_index}{default}(net, ...)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.

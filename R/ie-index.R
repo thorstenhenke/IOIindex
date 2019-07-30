@@ -66,6 +66,6 @@ EI_index.matrix <- function(net, v, ...) {
 
 #' @describeIn EI_index error case
 #' @export
-EI_index.default <- function(x, ...) {
-    print_err_msg("EI_index()", x)
+EI_index.default <- function(net, ...) {
+    print_err_msg("EI_index()", net)
 }

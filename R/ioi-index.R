@@ -102,8 +102,8 @@ social_closing.matrix <- function(net, v, mode = c("out", "in"), ...) {
 
 #' @describeIn social_closing error case
 #' @export
-social_closing.default <- function(x, depth = 0, ...) {
-    print_err_msg("social_closing()", x)
+social_closing.default <- function(net, depth = 0, ...) {
+    print_err_msg("social_closing()", net)
 }
 
 #' Social opening coefficient
@@ -153,8 +153,8 @@ social_opening.matrix <- function(net, v, mode = c("out", "in"), ...) {
 
 #' @describeIn social_opening error case
 #' @export
-social_opening.default <- function(x, depth = 0, ...) {
-    print_err_msg("social_opening()", x)
+social_opening.default <- function(net, depth = 0, ...) {
+    print_err_msg("social_opening()", net)
 }
 
 #' Social integration coefficient
@@ -204,6 +204,6 @@ social_integration.matrix <- function(net, v, mode = c("out", "in"), ...) {
 
 #' @describeIn social_integration error case
 #' @export
-social_integration.default <- function(x, depth = 0, ...) {
-    print_err_msg("social_integration()", x)
+social_integration.default <- function(net, depth = 0, ...) {
+    print_err_msg("social_integration()", net)
 }

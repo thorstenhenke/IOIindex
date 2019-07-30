@@ -24,7 +24,7 @@ naive_opening(net, ...)
 
 \method{naive_opening}{matrix}(net, v)
 
-\method{naive_opening}{default}(x, depth = 0, ...)
+\method{naive_opening}{default}(net, depth = 0, ...)
 
 \method{naive_closing}{list}(net, vname, depth = 0)
 

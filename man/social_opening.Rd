@@ -16,7 +16,7 @@ social_opening(net, ...)
 
 \method{social_opening}{matrix}(net, v, mode = c("out", "in"), ...)
 
-\method{social_opening}{default}(x, depth = 0, ...)
+\method{social_opening}{default}(net, depth = 0, ...)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.

@@ -68,6 +68,6 @@ Yules_q.matrix <- function(net, v, ...) {
 
 #' @describeIn Yules_q error case
 #' @export
-Yules_q.default <- function(x, ...) {
-    print_err_msg("Yules_q()", x)
+Yules_q.default <- function(net, ...) {
+    print_err_msg("Yules_q()", net)
 }

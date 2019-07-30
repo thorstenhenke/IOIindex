@@ -22,7 +22,7 @@ social_closing(net, ..., depth = 0)
 
 \method{social_closing}{matrix}(net, v, mode = c("out", "in"), ...)
 
-\method{social_closing}{default}(x, depth = 0, ...)
+\method{social_closing}{default}(net, depth = 0, ...)
 
 \method{social_opening}{list}(net, vname, mode = c("out", "in"),
   depth = 0)

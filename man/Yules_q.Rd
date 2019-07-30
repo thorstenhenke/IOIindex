@@ -19,7 +19,7 @@ Yules_q(net, ..., depth = 0)
 
 \method{Yules_q}{matrix}(net, v, ...)
 
-\method{Yules_q}{default}(x, ...)
+\method{Yules_q}{default}(net, ...)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.

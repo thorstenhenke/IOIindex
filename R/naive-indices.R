@@ -53,8 +53,8 @@ naive_opening.matrix <- function(net, v) {
 }
 #' @describeIn naive_opening error case
 #' @export
-naive_opening.default <- function(x, depth = 0, ...) {
-    print_err_msg("naive_opening()", x)
+naive_opening.default <- function(net, depth = 0, ...) {
+    print_err_msg("naive_opening()", net)
 }
 
 #' Naive in- and outgroup index

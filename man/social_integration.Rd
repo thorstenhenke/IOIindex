@@ -18,7 +18,7 @@ social_integration(net, ...)
 
 \method{social_integration}{matrix}(net, v, mode = c("out", "in"), ...)
 
-\method{social_integration}{default}(x, depth = 0, ...)
+\method{social_integration}{default}(net, depth = 0, ...)
 }
 \arguments{
 \item{net}{Network of type matrix, igraph, network or a list of objects of these datatypes.
