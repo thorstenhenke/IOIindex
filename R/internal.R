@@ -2,7 +2,7 @@
 Eijk_Rintern <- function(x, v, m) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
 
-    m <- ifelse(isSymmetric(x), "out", match.arg(m, several.ok = FALSE))
+    m <- if (isSymmetric(x)) "out"
 
     if (m == "in") {
         wijk <- 1 + colSums(x * outer(v, v, "=="))
@@ -16,7 +16,7 @@ Eijk_Rintern <- function(x, v, m) {
 Aijk_Rintern <- function(x, v, m) {
     stopifnot(is_sociomatrix(x) && is_nominal(v))
 
-    m <- ifelse(isSymmetric(x), "out", match.arg(m, several.ok = FALSE))
+    m <- if (isSymmetric(x)) "out"
 
     if (m == "in") {
         wijk <- 1 + colSums(x * outer(v, v, "!="))
