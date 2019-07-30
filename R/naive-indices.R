@@ -32,7 +32,7 @@ naive_opening <- function(net, ...) {
 #' @describeIn naive_opening net is of type list
 #' @export
 naive_opening.list <- function(net, vname, ..., depth = 0) {
-    apply_list(naive_opening, net, vname, depth)
+    apply_list(naive_opening, net, vname, mode, depth)
 }
 #' @describeIn naive_opening net is of type network
 #' @export
@@ -77,7 +77,7 @@ naive_closing <- function(net, ...) {
 #' @describeIn naive_opening net is of type list
 #' @export
 naive_closing.list <- function(net, vname, ..., depth = 0) {
-    apply_list(naive_closing, net, vname, depth)
+    apply_list(naive_closing, net, vname, mode, depth)
 }
 
 #' @describeIn naive_opening net is of type network

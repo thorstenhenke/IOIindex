@@ -40,14 +40,14 @@ EReitz_intern <- function(x, v) {
     m <- if (isSymmetric(x)) "out"
 
     if (m == "in") {
-
-    } else {
-
+        re <- colSums(x * xg)
+        rn <- colSums(xg) - 1  # since xg also tests the diagonal for equality, the sum is of by one
+    } else {  # m == "out
+        re <- rowSums(x * xg)
+        rn <- rowSums(xg) - 1  # see comment above
     }
-    re <- rowSums(x * xg)
-    rn <- rowSums(xg)
 
-    re/(rn - 1)
+    re/rn
 }
 
 AReitz_intern <- function(x, v, m) {
@@ -56,8 +56,13 @@ AReitz_intern <- function(x, v, m) {
 
     m <- if (isSymmetric(x)) "out"
 
-    re <- rowSums(x * xg)
-    rn <- rowSums(xg)
+    if (m == "in") {
+        re <- colSums(x * xg)
+        rn <- colSums(xg)
+    } else {  # m == "out
+        re <- rowSums(x * xg)
+        rn <- rowSums(xg)
+    }
 
     re/rn
 }
