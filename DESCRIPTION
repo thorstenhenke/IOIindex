@@ -18,6 +18,9 @@ Description: The IOIndex is a collection of homophily measures for social networ
     member. Next to the newly devoloped index we also inclued implementations of several older indces 
     as e.g. the well-known IE index and Yule's Q. These additional indices  can be used for validating 
     and double checking the results of the IOIndex procedures. 
+Suggests: 
+    network, 
+    igraph
 URL: https://github.com/thorstenhenke/IOIndex
 BugReports: https://github.com/thorstenhenke/IOIndex/issues
 License: GPL-3
