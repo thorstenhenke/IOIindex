@@ -8,14 +8,16 @@
 #' @param vname character variable indicating the variable that is used for grouping. This parameter
 #' can only be used if net is of type igraph, network or list. Please note, that in case you are
 #' using the list input, the variable has to be present in each of the list objects.
+#' @param mode This parameter will only be evaluated if the network is directed. In case of an undirected
+#' network this parameter will be ignored.
 #' @return a data.frame with three columns for the social closing, opening and integration coefficients
 #' per person in the given network(s).
 #' @export
-social_all <- function(net, vname) {
+social_all <- function(net, vname, mode = c("out", "in")) {
 
     if (is.list(net) && !(network::is.network(net) || igraph::is.igraph(net))) {
-        a <- apply_list(social_closing, net, vname, depth = 0)
-        e <- apply_list(social_opening, net, vname, depth = 0)
+        a <- apply_list(social_closing, net, vname, mode, depth = 0)
+        e <- apply_list(social_opening, net, vname, mode, depth = 0)
     } else {
         a <- social_closing(net, vname)
         e <- social_opening(net, vname)
