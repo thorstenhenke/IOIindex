@@ -7,7 +7,7 @@
 \alias{McCormick.igraph}
 \alias{McCormick.matrix}
 \alias{McCormick.default}
-\title{Social homophily Index}
+\title{Social homophily Index by McCormick et al.}
 \usage{
 McCormick(net, ..., depth = 0)
 
@@ -46,8 +46,8 @@ a numeric vector of social opening indices for each indvidual in the network.
 }
 \description{
 `McCormick()` calculates a homophily index based on a given network and node attribute.
-This index was invented by McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051. During the developement of the IOIndex this index was used for validation.
-Thus both indices, the IOIndex and McCormick's index, should usually be moderatedly correlated.
+This index was invented by McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051. During the developement of the IOIndex this index was used for validation. Thus both indices, the IOIndex and McCormick's index, should usually be moderatedly correlated. Further explanations regardings this index can be found in the
+corresponding paper.
 }
 \section{Methods (by class)}{
 \itemize{
@@ -62,3 +62,6 @@ Thus both indices, the IOIndex and McCormick's index, should usually be moderate
 \item \code{default}: error case
 }}
 
+\examples{
+# Please consult the documentation for the social_closing, social_opneing, etc. indices
+}
