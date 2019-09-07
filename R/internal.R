@@ -1,7 +1,12 @@
+assert_data_validity <- function(x, v) {
+    stopifnot(no_missings(x))
+    stopifnot(is_sociomatrix(x))
+    stopifnot(is_nominal(v))
+}
+
 # Documented in: <fill in citation after publication>
 Eijk_Rintern <- function(x, v, m) {
-    stopifnot(is_sociomatrix(x) && is_nominal(v))
-
+    assert_data_validity(x, v)
     m <- if (isSymmetric(x)) "out"
 
     if (m == "in") {
@@ -14,7 +19,7 @@ Eijk_Rintern <- function(x, v, m) {
 }
 
 Aijk_Rintern <- function(x, v, m) {
-    stopifnot(is_sociomatrix(x) && is_nominal(v))
+    assert_data_validity(x, v)
 
     m <- if (isSymmetric(x)) "out"
 
@@ -28,13 +33,13 @@ Aijk_Rintern <- function(x, v, m) {
 }
 
 Ii_Rintern <- function(x, v, m) {
-    stopifnot(is_sociomatrix(x) && is_nominal(v))
+    assert_data_validity(x, v)
     Aijk_Rintern(x, v, m) - Eijk_Rintern(x, v, m)
 }
 
 # Documented in: Reitz, Asendorpf & Motti-Stefanidi, 2015, DOI: 10.1177/0165025414567008
 EReitz_intern <- function(x, v) {
-    stopifnot(is_sociomatrix(x) && is_nominal(v))
+    assert_data_validity(x, v)
     xg <- outer(v, v, "==")
 
     m <- if (isSymmetric(x)) "out"
@@ -51,7 +56,7 @@ EReitz_intern <- function(x, v) {
 }
 
 AReitz_intern <- function(x, v, m) {
-    stopifnot(is_sociomatrix(x) && is_nominal(v))
+    assert_data_validity(x, v)
     xg <- outer(v, v, "!=")
 
     m <- if (isSymmetric(x)) "out"
@@ -69,7 +74,7 @@ AReitz_intern <- function(x, v, m) {
 
 # Documented in: McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051.
 McCormick_intern <- function(x, v, logscale = FALSE) {
-    stopifnot(is_sociomatrix(x) && is_nominal(v))
+    assert_data_validity(x, v)
     df  <- length(v) - 1
     nf  <- rowSums(x)
 
@@ -87,7 +92,7 @@ McCormick_intern <- function(x, v, logscale = FALSE) {
 # Documented in: Borgatti, S. P., Everett, M. G., & Johnson, Jeffrey C. (2013). Analyzing social networks.
 #' Los Angeles, et al.: SAGE Publications.
 ie_index_intern <- function(x, v, m = c("in", "out")) {
-    stopifnot(is_sociomatrix(x) && is_nominal(v))
+    assert_data_validity(x, v)
 
     m <- match.arg(m, several.ok = FALSE)
 
@@ -108,7 +113,7 @@ ie_index_intern <- function(x, v, m = c("in", "out")) {
 # Documented in: Borgatti, S. P., Everett, M. G., & Johnson, Jeffrey C. (2013). Analyzing social networks.
 #' Los Angeles, et al.: SAGE Publications.
 yules_q_intern <- function(x, v, m = c("in", "out")) {
-    stopifnot(is_sociomatrix(x) && is_nominal(v))
+    assert_data_validity(x, v)
 
     m <- match.arg(m, several.ok = FALSE)
 

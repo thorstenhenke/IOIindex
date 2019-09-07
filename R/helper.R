@@ -1,10 +1,14 @@
+no_missings <- function(x) {
+  !any(is.na(x))
+}
+
 is_sociomatrix <- function(x) {
     #is.matrix(x) && isSymmetric(x) && all((x == 0) | (x == 1)) && (all(diag(x) == 0))
     is.matrix(x) && all((x == 0) | (x == 1)) && (all(diag(x) == 0))
 }
 
 is_nominal <- function(v) {
-    is.factor(v) || is_integer(v)
+    is.factor(v) || is.character(v) || is_integer(v)
 }
 
 is_integer <- function(v) {
