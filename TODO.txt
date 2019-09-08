@@ -1,0 +1,2 @@
+[ ] Write the vertex names into the results object so the user can easily match the
+    results object with other data sources
