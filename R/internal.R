@@ -2,6 +2,7 @@ assert_data_validity <- function(x, v) {
     stopifnot(no_missings(x))
     stopifnot(is_sociomatrix(x))
     stopifnot(is_nominal(v))
+    stopifnot(no_missings(v))
 }
 
 # Documented in: <fill in citation after publication>
