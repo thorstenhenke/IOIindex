@@ -7,7 +7,8 @@ assert_data_validity <- function(x, v) {
 # Documented in: <fill in citation after publication>
 Eijk_Rintern <- function(x, v, m) {
     assert_data_validity(x, v)
-    m <- if (isSymmetric(x)) "out"
+
+    if (isSymmetric(x)) m <- "out"
 
     if (m == "in") {
         wijk <- 1 + colSums(x * outer(v, v, "=="))
@@ -21,7 +22,7 @@ Eijk_Rintern <- function(x, v, m) {
 Aijk_Rintern <- function(x, v, m) {
     assert_data_validity(x, v)
 
-    m <- if (isSymmetric(x)) "out"
+    if (isSymmetric(x)) m <- "out"
 
     if (m == "in") {
         wijk <- 1 + colSums(x * outer(v, v, "!="))
@@ -42,7 +43,7 @@ EReitz_intern <- function(x, v) {
     assert_data_validity(x, v)
     xg <- outer(v, v, "==")
 
-    m <- if (isSymmetric(x)) "out"
+    if (isSymmetric(x)) m <- "out"
 
     if (m == "in") {
         re <- colSums(x * xg)
@@ -59,7 +60,7 @@ AReitz_intern <- function(x, v, m) {
     assert_data_validity(x, v)
     xg <- outer(v, v, "!=")
 
-    m <- if (isSymmetric(x)) "out"
+    if (isSymmetric(x)) m <- "out"
 
     if (m == "in") {
         re <- colSums(x * xg)
