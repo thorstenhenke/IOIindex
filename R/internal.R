@@ -1,13 +1,18 @@
-assert_data_validity <- function(x, v) {
+assert_data_validity <- function(x, v, m) {
     stopifnot(no_missings(x))
     stopifnot(is_sociomatrix(x))
     stopifnot(is_nominal(v))
     stopifnot(no_missings(v))
+    if (m == "out") {
+        warning("Please keep in mind that the index was originnally defined ",
+                "for the network's indegrees. However, you are currently using ",
+                "the network's outdegrees.")
+    }
 }
 
 # Documented in: <fill in citation after publication>
 Eijk_Rintern <- function(x, v, m) {
-    assert_data_validity(x, v)
+    assert_data_validity(x, v, m)
 
     if (isSymmetric(x)) m <- "out"
 
@@ -21,7 +26,7 @@ Eijk_Rintern <- function(x, v, m) {
 }
 
 Aijk_Rintern <- function(x, v, m) {
-    assert_data_validity(x, v)
+    assert_data_validity(x, v, m)
 
     if (isSymmetric(x)) m <- "out"
 
@@ -35,13 +40,13 @@ Aijk_Rintern <- function(x, v, m) {
 }
 
 Ii_Rintern <- function(x, v, m) {
-    assert_data_validity(x, v)
+    assert_data_validity(x, v, m)
     Aijk_Rintern(x, v, m) - Eijk_Rintern(x, v, m)
 }
 
 # Documented in: Reitz, Asendorpf & Motti-Stefanidi, 2015, DOI: 10.1177/0165025414567008
 EReitz_intern <- function(x, v) {
-    assert_data_validity(x, v)
+    assert_data_validity(x, v, m)
     xg <- outer(v, v, "==")
 
     if (isSymmetric(x)) m <- "out"
@@ -58,7 +63,7 @@ EReitz_intern <- function(x, v) {
 }
 
 AReitz_intern <- function(x, v, m) {
-    assert_data_validity(x, v)
+    assert_data_validity(x, v, m)
     xg <- outer(v, v, "!=")
 
     if (isSymmetric(x)) m <- "out"
@@ -76,7 +81,7 @@ AReitz_intern <- function(x, v, m) {
 
 # Documented in: McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051.
 McCormick_intern <- function(x, v, logscale = FALSE) {
-    assert_data_validity(x, v)
+    assert_data_validity(x, v, m)
     df  <- length(v) - 1
     nf  <- rowSums(x)
 
@@ -94,7 +99,7 @@ McCormick_intern <- function(x, v, logscale = FALSE) {
 # Documented in: Borgatti, S. P., Everett, M. G., & Johnson, Jeffrey C. (2013). Analyzing social networks.
 #' Los Angeles, et al.: SAGE Publications.
 ie_index_intern <- function(x, v, m = c("in", "out")) {
-    assert_data_validity(x, v)
+    assert_data_validity(x, v, m)
 
     m <- match.arg(m, several.ok = FALSE)
 
@@ -115,7 +120,7 @@ ie_index_intern <- function(x, v, m = c("in", "out")) {
 # Documented in: Borgatti, S. P., Everett, M. G., & Johnson, Jeffrey C. (2013). Analyzing social networks.
 #' Los Angeles, et al.: SAGE Publications.
 yules_q_intern <- function(x, v, m = c("in", "out")) {
-    assert_data_validity(x, v)
+    assert_data_validity(x, v, m)
 
     m <- match.arg(m, several.ok = FALSE)
 
