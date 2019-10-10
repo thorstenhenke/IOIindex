@@ -1,23 +1,22 @@
 #' Naive in- and outgroup index
 #'
 #' This index was described and used in various papers (see e.g. Reitz, Asendorpf & Motti-Stefanidi, 2015, DOI: 10.1177/0165025414567008) For this index a ratio
-#' between the actual number relationships to members of the in- or outgroup is compared to
-#' the maximum possible number of connections within the in- or outgroup
-#' (aka the size of the in- or outgroup).
+#' between the actual number relationships to members of the in- or out-group is compared to
+#' the maximum possible number of connections within the in- or out-group
+#' (aka the size of the in- or out-group).
 #'
 #' @param net Network of type matrix, igraph, network or a list of objects of these datatypes.
 #' The list objects can even be mixed, meaning that some objects are of type network, some of type
 #' igraph, etc. The networks can either be directed or undirected. In case of a directed network it
 #' is recommended to specify whether the indices should be calculated based on the incoming network
 #' ties or outgoing network ties.
-#' @param vname character variable indicating which variable should be used for grouping. This parameter
+#' @param vname Character variable indicating which variable should be used for grouping. This parameter
 #' can only be used if net is of type igraph, network or list. Please note, that in case you are
-#' using the list input, the variable has to be present in each of the list objects. This parameter
-#' can only be used if net is of type igraph, network or list.
-#' @param v vector of node attributes. This parameter is only relevant if net is of type matrix. Otherwise
+#' using the list input, the variable has to be present in each of the list objects.
+#' @param v Vector of node attributes. This parameter is only relevant if net is of type matrix. Otherwise
 #' this parameter should be ignored and left as it is.
-#' @param ... Potential additional paramters. .
-#' @param depth this paramter should not be manipulated! It controls the recursion depth of the function
+#' @param ... Potential additional paramters.
+#' @param depth This paramter should not be manipulated! It controls the recursion depth of the function
 #' in case net is of type list.
 #' @return a numeric vector of real valued ratios for each indvidual in the network.
 #' @export
@@ -60,14 +59,14 @@ naive_opening.default <- function(net, depth = 0, ...) {
 #' Naive in- and outgroup index
 #'
 #' This index was described and used in various papers (see e.g. Reitz, Asendorpf & Motti-Stefanidi, 2015, DOI: 10.1177/0165025414567008) For this index a ratio
-#' between the actual number relationships to members of the in- or outgroup is compared to
-#' the maximum possible number of connections within the in- or outgroup
-#' (aka the size of the in- or outgroup).
+#' between the actual number relationships to members of the in- or out-group is compared to
+#' the maximum possible number of connections within the in- or out-group
+#' (aka the size of the in- or out-group).
 #'
 #' @inheritParams naive_opening
 #' @return a numeric vector of real valued ratios for each indvidual in the network.
 #' @examples
-#' # Please consult the documentation for the social_closing, social_opneing, etc. indices
+#' # Please consult the documentation for the social_closing, social_opening, etc. indices
 #'
 #' @export
 naive_closing <- function(net, ...) {
