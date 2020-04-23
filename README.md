@@ -1,4 +1,4 @@
-# IOIndex
+# IOIindex
 
 The IOIndex is a collection of homophily measures for social networks. It quantifies and  expresses the tendency of members in a social network to connect to other members outside or  inside a certain group. These groups may be defined by social categories like gender,  ethnicity, language, etc. In contrast to similar homophily indices the IOIndex does not compare  the in- and out-group orientation of a specific person with the number of possible in- and out-group  connections, but it compares it to the average in- and out-group orientation of the other  network members. The IOIndex thus can be understood as a measure of activiy for a specific network  member. In addition to the newly devoloped index we also inclued implementations of several older indices  as e.g. the well-known IE index and Yule's Q. These additional indices  can be used for validating  and double checking the results of the IOIndex procedures. 
 
