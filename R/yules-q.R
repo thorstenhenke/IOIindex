@@ -7,7 +7,7 @@
 #' the distribution of non-ties. For further information on this index and its comparison to the EI
 #' index see Borgatti, S. P., Everett, M. G., & Johnson, Jeffrey C. (2013). Analyzing social networks.
 #' Los Angeles, et al.: SAGE Publications. The EI index by Krackhardt & Stern (1988)
-#' DOI: 10.2307/2786835. was used during the developement of the IOIndex as a validation measure. Yule's Q
+#' DOI: 10.2307/2786835. was used during the developement of the IOIindex as a validation measure. Yule's Q
 #' was not during the developement of the package but in principle it could also have served as a
 #' validation for our new index.
 #'

@@ -1,28 +1,28 @@
-Package: IOIndex
+Package: IOIindex
 Type: Package
 Title: Caclucalting the opening, closing and integration tendencies in socical networks 
 Version: 1.0.0
 Date: 2019-06-01
 Authors@R: c(
-    person("Thorsten", "Henke", email = "IOIndex@thorsten-henke.de", role = c("aut", "cre")), 
+    person("Thorsten", "Henke", email = "IOIindex@thorsten-henke.de", role = c("aut", "cre")), 
     person("Lysann", "Zander", email = "lysann.zander@iew.uni-hannover.de", role = "aut"), 
     person("Christian", "Steglich", email = "c.e.g.steglich@rug.nl", role = "aut"), 
     person("Jürgen", "Baumert", email = "sekbaumert@mpib-berlin.mpg.de", role = "aut"))
-Description: The IOIndex is a collection of homophily measures for social networks. It quantifies and 
+Description: The IOIindex is a collection of homophily measures for social networks. It quantifies and 
     expresses the tendency of members in a social network to connect to other members outside or 
     inside a certain group. These groups may be defined by social categories like gender, 
-    ethnicity, language, etc. In contrast to similar homophily indices the IOIndex does not compare 
+    ethnicity, language, etc. In contrast to similar homophily indices the IOIindex does not compare 
     the in- and out-group orientation of a specific person with the number of possible in- and out-group 
     connections, but it compares it to the average in- and out-group orientation of the other 
-    network members. The IOIndex thus can be understood as a measure of activiy for a specific network 
+    network members. The IOIindex thus can be understood as a measure of activiy for a specific network 
     member. In addition to the newly devoloped index we also inclued implementations of several older indices 
     as e.g. the well-known IE index and Yule's Q. These additional indices  can be used for validating 
-    and double checking the results of the IOIndex procedures. 
+    and double checking the results of the IOIindex procedures. 
 Suggests: 
     network, 
     igraph
-URL: https://github.com/thorstenhenke/IOIndex
-BugReports: https://github.com/thorstenhenke/IOIndex/issues
+URL: https://github.com/thorstenhenke/IOIindex
+BugReports: https://github.com/thorstenhenke/IOIindex/issues
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

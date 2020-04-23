@@ -46,7 +46,7 @@ a numeric vector of social opening indices for each indvidual in the network.
 }
 \description{
 `McCormick()` calculates a homophily index based on a given network and node attribute.
-This index was invented by McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051. During the developement of the IOIndex this index was used for validation. Thus both indices, the IOIndex and McCormick's index, should usually be moderatedly correlated. Further explanations regardings this index can be found in the
+This index was invented by McCormick, Cappella, Hughes, Gallagher (2015). DOI: 10.1177/0272431614547051. During the developement of the IOIindex this index was used for validation. Thus both indices, the IOIindex and McCormick's index, should usually be moderatedly correlated. Further explanations regardings this index can be found in the
 corresponding paper.
 }
 \section{Methods (by class)}{

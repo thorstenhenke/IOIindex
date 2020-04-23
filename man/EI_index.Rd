@@ -49,10 +49,10 @@ the number of in and outgroup ties.
 `EI_index()` calculates an inverse homophily index based on a given network and node attribute.
 }
 \details{
-During the developement of the IOIndex this index was used for validation. The index was developed
- by Krackhardt & Stern (1988) DOI:  DOI: 10.2307/2786835. Thus both indices, the IOIndex and the
+During the developement of the IOIindex this index was used for validation. The index was developed
+ by Krackhardt & Stern (1988) DOI:  DOI: 10.2307/2786835. Thus both indices, the IOIindex and the
  EI-index, should usually be moderatedly and negatively correlated. However, as the EI-Index
- is known to be sensitive to group size, the association stregth with the IOIndex
+ is known to be sensitive to group size, the association stregth with the IOIindex
  should be expected to be smaller than for the other indices in this package.
 }
 \section{Methods (by class)}{
