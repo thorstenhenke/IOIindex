@@ -14,16 +14,16 @@
 #' per person in the given network(s).
 #' @export
 social_all <- function(net, vname, mode = c("in", "out")) {
-
     if (is.list(net) && !(network::is.network(net) || igraph::is.igraph(net))) {
         a <- apply_list(social_closing, net, vname, mode, depth = 0)
         e <- apply_list(social_opening, net, vname, mode, depth = 0)
+        ret <- data.frame(id = a[["id"]], closing = a[["val"]], opening = e[["val"]], integration = a[["val"]] - e[["val"]])
     } else {
         a <- social_closing(net, vname)
         e <- social_opening(net, vname)
+        ret <- data.frame(closing = a[["val"]], opening = e[["val"]], integration = a[["val"]] - e[["val"]])
     }
-
-    data.frame(closing = a, opening = e, integration = a - e)
+    ret
 }
 
 #' Social closing coefficient
