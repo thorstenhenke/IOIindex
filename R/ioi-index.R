@@ -21,7 +21,7 @@ social_all <- function(net, vname, mode = c("in", "out")) {
     } else {
         a <- social_closing(net, vname)
         e <- social_opening(net, vname)
-        ret <- data.frame(closing = a[["val"]], opening = e[["val"]], integration = a[["val"]] - e[["val"]])
+        ret <- data.frame(closing = a, opening = e, integration = a - e)
     }
     ret
 }
