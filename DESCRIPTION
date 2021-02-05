@@ -1,7 +1,7 @@
 Package: IOIindex
 Type: Package
 Title: Caclucalting the opening, closing and integration tendencies in socical networks 
-Version: 1.0.0
+Version: 1.0.1
 Date: 2019-06-01
 Authors@R: c(
     person("Thorsten", "Henke", email = "IOIindex@thorsten-henke.de", role = c("aut", "cre")), 
